@@ -39,7 +39,9 @@ function get_query_template( $type, $templates = array() ) {
 	 * @param array $templates A list of template candidates, in descending order of priority.
 	 */
 	$templates = apply_filters( "{$type}_template_hierarchy", $templates );
-
+    if('home' == $type){
+        get_stylesheet_directory();
+    }
 	$template = locate_template( $templates );
 
 	/**
@@ -353,6 +355,7 @@ function get_date_template() {
 function get_home_template() {
 	$templates = array( 'home.php', 'index.php' );
 
+
 	return get_query_template( 'home', $templates );
 }
 
@@ -370,6 +373,7 @@ function get_home_template() {
  */
 function get_front_page_template() {
 	$templates = array('front-page.php');
+
 
 	return get_query_template( 'front_page', $templates );
 }

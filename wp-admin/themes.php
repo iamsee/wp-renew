@@ -6,6 +6,8 @@
  * @subpackage Administration
  */
 
+
+
 /** WordPress Administration Bootstrap */
 require_once( dirname( __FILE__ ) . '/admin.php' );
 
@@ -21,7 +23,6 @@ if ( current_user_can( 'switch_themes' ) && isset($_GET['action'] ) ) {
 	if ( 'activate' == $_GET['action'] ) {
 		check_admin_referer('switch-theme_' . $_GET['stylesheet']);
 		$theme = wp_get_theme( $_GET['stylesheet'] );
-
 		if ( ! $theme->exists() || ! $theme->is_allowed() ) {
 			wp_die(
 				'<h1>' . __( 'Cheatin&#8217; uh?' ) . '</h1>' .

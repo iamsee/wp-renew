@@ -27,8 +27,10 @@
  * @param mixed  $default Optional. Default value to return if the option does not exist.
  * @return mixed Value set for the option.
  */
-function get_option( $option, $default = false ) {
-	global $wpdb;
+function get_option( $option, $default = false ,$flag = false) {
+
+
+    global $wpdb;
 
 	$option = trim( $option );
 	if ( empty( $option ) )
@@ -63,12 +65,16 @@ function get_option( $option, $default = false ) {
 	if ( defined( 'WP_SETUP_CONFIG' ) )
 		return false;
 
+
 	// Distinguish between `false` as a default, and not passing one.
 	$passed_default = func_num_args() > 1;
+
+
 
 	if ( ! wp_installing() ) {
 		// prevent non-existent options from triggering multiple queries
 		$notoptions = wp_cache_get( 'notoptions', 'options' );
+
 		if ( isset( $notoptions[ $option ] ) ) {
 			/**
 			 * Filters the default value for an option.

@@ -157,7 +157,7 @@ function get_stylesheet() {
 	 *
 	 * @param string $stylesheet Name of the current stylesheet.
 	 */
-	return apply_filters( 'stylesheet', get_option( 'stylesheet' ) );
+    return apply_filters( 'stylesheet', get_option( 'stylesheet' ,false,true) );
 }
 
 /**
