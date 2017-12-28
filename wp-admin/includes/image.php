@@ -72,13 +72,16 @@ function wp_crop_image( $src, $src_x, $src_y, $src_w, $src_h, $dst_w, $dst_h, $s
  * @return mixed Metadata for attachment.
  */
 function wp_generate_attachment_metadata( $attachment_id, $file ) {
+    $file = iconv('UTF-8', 'GB2312', $file);
 	$attachment = get_post( $attachment_id );
 
 	$metadata = array();
 	$support = false;
 	$mime_type = get_post_mime_type( $attachment );
 
+
 	if ( preg_match( '!^image/!', $mime_type ) && file_is_displayable_image( $file ) ) {
+        debug here;
 		$imagesize = getimagesize( $file );
 		$metadata['width'] = $imagesize[0];
 		$metadata['height'] = $imagesize[1];
@@ -142,14 +145,15 @@ function wp_generate_attachment_metadata( $attachment_id, $file ) {
 		if ( $image_meta )
 			$metadata['image_meta'] = $image_meta;
 
-	} elseif ( wp_attachment_is( 'video', $attachment ) ) {
+	}
+	elseif ( wp_attachment_is( 'video', $attachment ) ) {
 		$metadata = wp_read_video_metadata( $file );
 		$support = current_theme_supports( 'post-thumbnails', 'attachment:video' ) || post_type_supports( 'attachment:video', 'thumbnail' );
-	} elseif ( wp_attachment_is( 'audio', $attachment ) ) {
+	}
+	elseif ( wp_attachment_is( 'audio', $attachment ) ) {
 		$metadata = wp_read_audio_metadata( $file );
 		$support = current_theme_supports( 'post-thumbnails', 'attachment:audio' ) || post_type_supports( 'attachment:audio', 'thumbnail' );
 	}
-
 	if ( $support && ! empty( $metadata['image']['data'] ) ) {
 		// Check for existing cover.
 		$hash = md5( $metadata['image']['data'] );

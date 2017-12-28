@@ -823,11 +823,14 @@ function _wp_handle_upload( &$file, $overrides, $time, $action ) {
 
 	$filename = wp_unique_filename( $uploads['path'], $file['name'], $unique_filename_callback );
 
+	$filename = /*解决中文名称附件乱码的问题*/
 	// Move the file to the uploads dir.
-//	$new_file = $uploads['path'] . "/$filename";
-	$new_file = $uploads['path'] . "/" . iconv("UTF-8","GB2312",$filename);
+	$new_file = $uploads['path'] . "/" . $filename;
+//	$new_file =  iconv("UTF-8","GB2312//IGNORE",$new_file);
+//    $new_file = $uploads['path'] . '/' . iconv('UTF-8', 'GBK2312', $filename);
+//    echo $new_file;exit;
 
- 	/**
+    /**
 	 * Filters whether to short-circuit moving the uploaded file after passing all checks.
 	 *
 	 * If a non-null value is passed to the filter, moving the file and any related error
@@ -840,14 +843,18 @@ function _wp_handle_upload( &$file, $overrides, $time, $action ) {
 	 * @param string $new_file      Filename of the newly-uploaded file.
 	 * @param string $type          File type.
 	 */
-	$move_new_file = apply_filters( 'pre_move_uploaded_file', null, $file, $new_file, $type );
+
+    $move_new_file = apply_filters( 'pre_move_uploaded_file', null, $file, $new_file, $type );
+
 
 	if ( null === $move_new_file ) {
 		if ( 'wp_handle_upload' === $action ) {
-			$move_new_file = @ move_uploaded_file( $file['tmp_name'], $new_file );
+//			$move_new_file = @ move_uploaded_file( $file['tmp_name'], $new_file );
+			$move_new_file = @ move_uploaded_file( $file['tmp_name'], iconv("UTF-8","GB2312//IGNORE",$new_file));
 		} else {
 			// use copy and unlink because rename breaks streams.
-			$move_new_file = @ copy( $file['tmp_name'], $new_file );
+//			$move_new_file = @ copy( $file['tmp_name'], $new_file );
+			$move_new_file = @ copy( $file['tmp_name'], iconv("UTF-8","GB2312//IGNORE",$new_file) );
 			unlink( $file['tmp_name'] );
 		}
 
@@ -864,7 +871,7 @@ function _wp_handle_upload( &$file, $overrides, $time, $action ) {
 	// Set correct file permissions.
 	$stat = stat( dirname( $new_file ));
 	$perms = $stat['mode'] & 0000666;
-	@ chmod( $new_file, $perms );
+	@chmod( $new_file, $perms );
 
 	// Compute the URL.
 	$url = $uploads['url'] . "/$filename";
@@ -887,8 +894,10 @@ function _wp_handle_upload( &$file, $overrides, $time, $action ) {
 	 * }
 	 * @param string $context The type of upload action. Values include 'upload' or 'sideload'.
 	 */
-	return apply_filters( 'wp_handle_upload', array(
+
+    return apply_filters( 'wp_handle_upload', array(
 		'file' => $new_file,
+//        'file' => $uploads['path']."/$filename",
 		'url'  => $url,
 		'type' => $type
 	), 'wp_handle_sideload' === $action ? 'sideload' : 'upload' );
@@ -912,16 +921,17 @@ function _wp_handle_upload( &$file, $overrides, $time, $action ) {
  *               $overrides['upload_error_handler'](&$file, $message ) or array( 'error'=>$message ).
  */
 function wp_handle_upload( &$file, $overrides = false, $time = null ) {
-	/*
-	 *  $_POST['action'] must be set and its value must equal $overrides['action']
-	 *  or this:
-	 */
+
+    /*
+     *  $_POST['action'] must be set and its value must equal $overrides['action']
+     *  or this:
+     */
 	$action = 'wp_handle_upload';
 	if ( isset( $overrides['action'] ) ) {
 		$action = $overrides['action'];
 	}
-
-	return _wp_handle_upload( $file, $overrides, $time, $action );
+    $return = _wp_handle_upload( $file, $overrides, $time, $action );
+	return $return;
 }
 
 /**

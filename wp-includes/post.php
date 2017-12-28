@@ -546,7 +546,8 @@ function get_post( $post = null, $output = OBJECT, $filter = 'raw' ) {
 		$_post = WP_Post::get_instance( $post );
 	}
 
-	if ( ! $_post )
+
+    if ( ! $_post )
 		return null;
 
 	$_post = $_post->filter( $filter );
@@ -1775,7 +1776,10 @@ function delete_post_meta( $post_id, $meta_key, $meta_value = '' ) {
  *               field if $single is true.
  */
 function get_post_meta( $post_id, $key = '', $single = false ) {
-	return get_metadata('post', $post_id, $key, $single);
+
+    $return = get_metadata('post', $post_id, $key, $single);
+
+    return $return;
 }
 
 /**
@@ -5051,7 +5055,6 @@ function wp_get_attachment_metadata( $attachment_id = 0, $unfiltered = false ) {
 	}
 
 	$data = get_post_meta( $post->ID, '_wp_attachment_metadata', true );
-
 	if ( $unfiltered )
 		return $data;
 
@@ -5091,6 +5094,7 @@ function wp_update_attachment_metadata( $attachment_id, $data ) {
 	 * @param int   $attachment_id Attachment post ID.
 	 */
 	if ( $data = apply_filters( 'wp_update_attachment_metadata', $data, $post->ID ) )
+
 		return update_post_meta( $post->ID, '_wp_attachment_metadata', $data );
 	else
 		return delete_post_meta( $post->ID, '_wp_attachment_metadata' );

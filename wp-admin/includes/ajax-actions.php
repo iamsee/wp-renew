@@ -2109,7 +2109,6 @@ function wp_ajax_upload_attachment() {
 			wp_die();
 		}
 	}
-
 	$attachment_id = media_handle_upload( 'async-upload', $post_id, $post_data );
 
 	if ( is_wp_error( $attachment_id ) ) {
@@ -2128,18 +2127,18 @@ function wp_ajax_upload_attachment() {
 		if ( 'custom-background' === $post_data['context'] )
 			update_post_meta( $attachment_id, '_wp_attachment_is_custom_background', $post_data['theme'] );
 
-		if ( 'custom-header' === $post_data['context'] )
+		if ( 'custom-header' === $post_data['conaftext'] )
 			update_post_meta( $attachment_id, '_wp_attachment_is_custom_header', $post_data['theme'] );
 	}
-
-	if ( ! $attachment = wp_prepare_attachment_for_js( $attachment_id ) )
+    $attachment = wp_prepare_attachment_for_js( $attachment_id );
+    if ( ! $attachment )
 		wp_die();
+
 
 	echo wp_json_encode( array(
 		'success' => true,
 		'data'    => $attachment,
 	) );
-
 	wp_die();
 }
 

@@ -271,7 +271,6 @@ win.send_to_editor( <?php echo wp_json_encode( $html ); ?> );
  * @return int|WP_Error ID of the attachment or a WP_Error object on failure.
  */
 function media_handle_upload($file_id, $post_id, $post_data = array(), $overrides = array( 'test_form' => false )) {
-
 	$time = current_time('mysql');
 	if ( $post = get_post($post_id) ) {
 		// The post date doesn't usually matter for pages, so don't backdate this upload.
@@ -290,7 +289,8 @@ function media_handle_upload($file_id, $post_id, $post_data = array(), $override
 
 	$url = $file['url'];
 	$type = $file['type'];
-	$file = $file['file'];
+	$file =$file['file'];
+
 	$title = sanitize_text_field( $name );
 	$content = '';
 	$excerpt = '';
@@ -355,7 +355,8 @@ function media_handle_upload($file_id, $post_id, $post_data = array(), $override
 		}
 
 	// Use image exif/iptc data for title and caption defaults if possible.
-	} elseif ( 0 === strpos( $type, 'image/' ) && $image_meta = @wp_read_image_metadata( $file ) ) {
+	}
+	elseif ( 0 === strpos( $type, 'image/' ) && $image_meta = @wp_read_image_metadata( $file ) ) {
 		if ( trim( $image_meta['title'] ) && ! is_numeric( sanitize_title( $image_meta['title'] ) ) ) {
 			$title = $image_meta['title'];
 		}
@@ -364,7 +365,6 @@ function media_handle_upload($file_id, $post_id, $post_data = array(), $override
 			$excerpt = $image_meta['caption'];
 		}
 	}
-
 	// Construct the attachment array
 	$attachment = array_merge( array(
 		'post_mime_type' => $type,
@@ -379,8 +379,12 @@ function media_handle_upload($file_id, $post_id, $post_data = array(), $override
 	unset( $attachment['ID'] );
 
 	// Save the data
-	$id = wp_insert_attachment( $attachment, $file, $post_id, true );
-	if ( !is_wp_error($id) ) {
+
+    $id = wp_insert_attachment( $attachment, $file, $post_id, true );
+
+
+    if ( !is_wp_error($id) ) {
+
 		wp_update_attachment_metadata( $id, wp_generate_attachment_metadata( $id, $file ) );
 	}
 

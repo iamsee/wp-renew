@@ -3074,7 +3074,9 @@ function wp_plupload_default_settings() {
  * @return array|void Array of attachment details.
  */
 function wp_prepare_attachment_for_js( $attachment ) {
-	if ( ! $attachment = get_post( $attachment ) )
+
+
+    if ( ! $attachment = get_post( $attachment ) )
 		return;
 
 	if ( 'attachment' != $attachment->post_type )
@@ -3144,8 +3146,8 @@ function wp_prepare_attachment_for_js( $attachment ) {
 		}
 	}
 
-	$attached_file = get_attached_file( $attachment->ID );
 
+	$attached_file = get_attached_file( $attachment->ID );
 	if ( isset( $meta['filesize'] ) ) {
 		$bytes = $meta['filesize'];
 	} elseif ( file_exists( $attached_file ) ) {
@@ -3880,7 +3882,8 @@ function get_post_gallery_images( $post = 0 ) {
  * @param WP_Post $attachment Attachment object.
  */
 function wp_maybe_generate_attachment_metadata( $attachment ) {
-	if ( empty( $attachment ) || ( empty( $attachment->ID ) || ! $attachment_id = (int) $attachment->ID ) ) {
+
+    if ( empty( $attachment ) || ( empty( $attachment->ID ) || ! $attachment_id = (int) $attachment->ID ) ) {
 		return;
 	}
 

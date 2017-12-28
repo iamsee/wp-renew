@@ -458,6 +458,7 @@ function delete_metadata($meta_type, $object_id, $meta_key, $meta_value = '', $d
  * @return mixed Single metadata value, or array of values
  */
 function get_metadata($meta_type, $object_id, $meta_key = '', $single = false) {
+
 	if ( ! $meta_type || ! is_numeric( $object_id ) ) {
 		return false;
 	}
@@ -492,6 +493,7 @@ function get_metadata($meta_type, $object_id, $meta_key = '', $single = false) {
 
 	$meta_cache = wp_cache_get($object_id, $meta_type . '_meta');
 
+
 	if ( !$meta_cache ) {
 		$meta_cache = update_meta_cache( $meta_type, array( $object_id ) );
 		$meta_cache = $meta_cache[$object_id];
@@ -502,16 +504,26 @@ function get_metadata($meta_type, $object_id, $meta_key = '', $single = false) {
 	}
 
 	if ( isset($meta_cache[$meta_key]) ) {
-		if ( $single )
-			return maybe_unserialize( $meta_cache[$meta_key][0] );
+
+		if ( $single ){
+
+            return maybe_unserialize( $meta_cache[$meta_key][0] );
+        }
+
 		else
+
+
 			return array_map('maybe_unserialize', $meta_cache[$meta_key]);
 	}
 
-	if ($single)
-		return '';
+	if ($single) {
+
+        return '';
+
+	}
 	else
 		return array();
+
 }
 
 /**
