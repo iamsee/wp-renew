@@ -78,6 +78,11 @@ $table_prefix  = 'wp_';
  */
 define('WP_DEBUG', false);
 
+
+//自动保存10小时一次
+define('AUTOSAVE_INTERVAL', 36000);
+//取消自动修订版
+define('WP_POST_REVISIONS',false);
 /**
  * zh_CN本地化设置：启用ICP备案号显示
  *
