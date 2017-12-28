@@ -824,7 +824,8 @@ function _wp_handle_upload( &$file, $overrides, $time, $action ) {
 	$filename = wp_unique_filename( $uploads['path'], $file['name'], $unique_filename_callback );
 
 	// Move the file to the uploads dir.
-	$new_file = $uploads['path'] . "/$filename";
+//	$new_file = $uploads['path'] . "/$filename";
+	$new_file = $uploads['path'] . "/" . iconv("UTF-8","GB2312",$filename);
 
  	/**
 	 * Filters whether to short-circuit moving the uploaded file after passing all checks.
