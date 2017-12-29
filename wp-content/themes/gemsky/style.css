@@ -1,0 +1,49 @@
+/*
+	Theme Name: 琳琅天上
+	Theme URI: http://gemsky.iamsee.com
+	Description: gemsky WordPress Theme
+	Version: 1.0.0
+	Author: IAMSEE (@iamsee)
+	Author URI: http://iamsee.com
+	Tags: gemsky, HTML5, CSS3
+
+	License: MIT
+	License URI: http://opensource.org/licenses/mit-license.php
+*/
+@font-face{
+
+    font-family: "春联字体";
+    src: url('./fonts/春联字体.ttf') ;
+}
+@font-face {
+    font-family: "ibmplex";
+    src: url('./fonts/IBMPlexSans-TextItalic.ttf') ;
+}
+@font-face {
+    font-family: "禹卫行书字体";
+    src: url('./fonts/禹卫行书字体.ttf') ;
+}
+
+body{
+    font-family: ibmplex,禹卫行书字体,春联字体;
+}
+#header #headerimg{
+    padding: 10px 15px;
+    background-color: silver;
+    box-shadow: 0 0 5px black;
+}
+
+/*首页文章列表*/
+#home-loop .post-item{
+    width:610px;
+    border: 1px solid #cfcfcf;
+    box-shadow: 0 0 5px #c6c6c6;
+    margin:10px 15px;
+    padding: 10px 15px;
+}
+#home-loop .post-item .post-meta{
+    float: right;
+    margin-top: -10px;
+    /*font-family: 春联字体;*/
+    font-size: 12px;
+}
