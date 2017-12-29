@@ -850,11 +850,11 @@ function _wp_handle_upload( &$file, $overrides, $time, $action ) {
 	if ( null === $move_new_file ) {
 		if ( 'wp_handle_upload' === $action ) {
 //			$move_new_file = @ move_uploaded_file( $file['tmp_name'], $new_file );
-			$move_new_file = @ move_uploaded_file( $file['tmp_name'], iconv("UTF-8","GB2312//IGNORE",$new_file));
+			$move_new_file = @ move_uploaded_file( $file['tmp_name'], iconv("UTF-8","GB2312//IGNORE",$new_file)); /*修复windows平台上传后中文乱码*/
 		} else {
 			// use copy and unlink because rename breaks streams.
 //			$move_new_file = @ copy( $file['tmp_name'], $new_file );
-			$move_new_file = @ copy( $file['tmp_name'], iconv("UTF-8","GB2312//IGNORE",$new_file) );
+			$move_new_file = @ copy( $file['tmp_name'], iconv("UTF-8","GB2312//IGNORE",$new_file) );/*修复windows平台上传后中文乱码*/
 			unlink( $file['tmp_name'] );
 		}
 
