@@ -10,22 +10,22 @@
 	License: MIT
 	License URI: http://opensource.org/licenses/mit-license.php
 */
-@font-face{
+/*@font-face{*/
 
-    font-family: "春联字体";
-    src: url('./fonts/春联字体.ttf') ;
+    /*font-family: "春联字体";*/
+    /*src: url('./fonts/春联字体.ttf') ;*/
+/*}*/
+
+@font-face {
+    font-family: "禹卫行书字体";
+    src: url('./fonts/禹卫行书字体.ttf') ;
 }
 @font-face {
     font-family: "ibmplex";
     src: url('./fonts/IBMPlexSans-TextItalic.ttf') ;
 }
-@font-face {
-    font-family: "禹卫行书字体";
-    src: url('./fonts/禹卫行书字体.ttf') ;
-}
-
 body{
-    font-family: ibmplex,禹卫行书字体,春联字体;
+    font-family: ibmplex,禹卫行书字体;
 }
 #header #headerimg{
     padding: 10px 15px;
