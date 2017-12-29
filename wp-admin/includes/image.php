@@ -72,23 +72,23 @@ function wp_crop_image( $src, $src_x, $src_y, $src_w, $src_h, $dst_w, $dst_h, $s
  * @return mixed Metadata for attachment.
  */
 function wp_generate_attachment_metadata( $attachment_id, $file ) {
-    $file = iconv('UTF-8', 'GB2312', $file);
 	$attachment = get_post( $attachment_id );
 
 	$metadata = array();
 	$support = false;
 	$mime_type = get_post_mime_type( $attachment );
+    $file = iconv('UTF-8', 'GB2312', $file); /*第一次转到GBK供 file_is_displayable_image、 getimagesize 使用  */
+	if ( preg_match( '!^image/!', $mime_type ) && file_is_displayable_image(  $file) ){
 
-
-	if ( preg_match( '!^image/!', $mime_type ) && file_is_displayable_image( $file ) ) {
-        debug here;
 		$imagesize = getimagesize( $file );
+
 		$metadata['width'] = $imagesize[0];
 		$metadata['height'] = $imagesize[1];
 
-		// Make the file path relative to the upload dir.
-		$metadata['file'] = _wp_relative_upload_path($file);
+        $file = iconv('GB2312', 'UTF-8', $file);/*第二次转回UTF-8 供 _wp_relative_upload_path 使用  */
 
+		// Make the file path relative to the upload dir.
+		$metadata['file'] = _wp_relative_upload_path($file,true);
 		// Make thumbnails and other intermediate sizes.
 		$_wp_additional_image_sizes = wp_get_additional_image_sizes();
 
@@ -154,6 +154,8 @@ function wp_generate_attachment_metadata( $attachment_id, $file ) {
 		$metadata = wp_read_audio_metadata( $file );
 		$support = current_theme_supports( 'post-thumbnails', 'attachment:audio' ) || post_type_supports( 'attachment:audio', 'thumbnail' );
 	}
+
+
 	if ( $support && ! empty( $metadata['image']['data'] ) ) {
 		// Check for existing cover.
 		$hash = md5( $metadata['image']['data'] );
