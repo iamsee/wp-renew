@@ -77,7 +77,7 @@ function wp_generate_attachment_metadata( $attachment_id, $file ) {
 	$metadata = array();
 	$support = false;
 	$mime_type = get_post_mime_type( $attachment );
-    $file = iconv('UTF-8', 'GB2312', $file); /*第一次转到GBK供 file_is_displayable_image、 getimagesize 使用  */
+//    $file = iconv('UTF-8', 'GB2312', $file); /*第一次转到GBK供 file_is_displayable_image、 getimagesize 使用  */
 	if ( preg_match( '!^image/!', $mime_type ) && file_is_displayable_image(  $file) ){
 
 		$imagesize = getimagesize( $file );
@@ -85,7 +85,7 @@ function wp_generate_attachment_metadata( $attachment_id, $file ) {
 		$metadata['width'] = $imagesize[0];
 		$metadata['height'] = $imagesize[1];
 
-        $file = iconv('GB2312', 'UTF-8', $file);/*第二次转回UTF-8 供 _wp_relative_upload_path 使用  */
+//        $file = iconv('GB2312', 'UTF-8', $file);/*第二次转回UTF-8 供 _wp_relative_upload_path 使用  */
 
 		// Make the file path relative to the upload dir.
 		$metadata['file'] = _wp_relative_upload_path($file,true);
