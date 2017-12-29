@@ -403,7 +403,7 @@ abstract class WP_Image_Editor {
 
 		if ( $result && $stream ) {
 			$contents = ob_get_contents();
-
+//            $filename =  iconv("UTF-8","GB2312//IGNORE",$filename);
 			$fp = fopen( $filename, 'w' );
 
 			if ( ! $fp )

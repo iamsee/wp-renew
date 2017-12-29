@@ -314,11 +314,12 @@ function wp_save_image_file( $filename, $image, $mime_type, $post_id ) {
 		 * @param int             $post_id   Post ID.
 		 */
 		$saved = apply_filters( 'wp_save_image_editor_file', null, $filename, $image, $mime_type, $post_id );
-
 		if ( null !== $saved )
 			return $saved;
 
-		return $image->save( $filename, $mime_type );
+//        $filename = iconv("UTF-8","GB2312",$filename);
+        $make_save =  $image->save( $filename, $mime_type );
+		return $make_save;
 	} else {
 		_deprecated_argument( __FUNCTION__, '3.5.0', __( '$image needs to be an WP_Image_Editor object' ) );
 
@@ -707,6 +708,7 @@ function wp_restore_image($post_id) {
  * @return \stdClass
  */
 function wp_save_image( $post_id ) {
+
 	$_wp_additional_image_sizes = wp_get_additional_image_sizes();
 
 	$return = new stdClass;
@@ -763,7 +765,6 @@ function wp_save_image( $post_id ) {
 
 	// Generate new filename.
 	$path = get_attached_file( $post_id );
-
 	$basename = pathinfo( $path, PATHINFO_BASENAME );
 	$dirname = pathinfo( $path, PATHINFO_DIRNAME );
 	$ext = pathinfo( $path, PATHINFO_EXTENSION );
@@ -791,12 +792,13 @@ function wp_save_image( $post_id ) {
 			}
 		}
 	}
+//    $new_path = iconv("UTF-8","GB2312//IGNORE",$new_path);
 
-	// Save the full-size file, also needed to create sub-sizes.
 	if ( !wp_save_image_file($new_path, $img, $post->post_mime_type, $post_id) ) {
 		$return->error = esc_js( __('Unable to save the image.') );
 		return $return;
 	}
+//    echo $new_path;exit;
 
 	if ( 'nothumb' === $target || 'all' === $target || 'full' === $target || $scaled ) {
 		$tag = false;

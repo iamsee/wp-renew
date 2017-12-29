@@ -350,8 +350,9 @@ function update_attached_file( $attachment_id, $file ) {
  * @param string $path Full path to the file.
  * @return string Relative path on success, unchanged path on failure.
  */
-function _wp_relative_upload_path( $path ) {
+function _wp_relative_upload_path( $path,$flag = false ) {
 	$new_path = $path;
+
 
 	$uploads = wp_get_upload_dir();
 	if ( 0 === strpos( $new_path, $uploads['basedir'] ) ) {

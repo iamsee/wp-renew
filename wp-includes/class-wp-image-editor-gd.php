@@ -461,7 +461,7 @@ class WP_Image_Editor_GD extends WP_Image_Editor {
 	protected function make_image( $filename, $function, $arguments ) {
 		if ( wp_is_stream( $filename ) )
 			$arguments[1] = null;
-
-		return parent::make_image( $filename, $function, $arguments );
+		$make_image = parent::make_image( $filename, $function, $arguments );
+		return $make_image;
 	}
 }
