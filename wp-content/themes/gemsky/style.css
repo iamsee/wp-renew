@@ -16,16 +16,16 @@
     /*src: url('./fonts/春联字体.ttf') ;*/
 /*}*/
 
-@font-face {
-    font-family: "禹卫行书字体";
-    src: url('./fonts/禹卫行书字体.ttf') ;
-}
+/*@font-face {*/
+    /*font-family: "禹卫行书字体";*/
+    /*src: url('./fonts/禹卫行书字体.ttf') ;*/
+/*}*/
 @font-face {
     font-family: "ibmplex";
     src: url('./fonts/IBMPlexSans-TextItalic.ttf') ;
 }
 body{
-    font-family: ibmplex,禹卫行书字体;
+    font-family: ibmplex,PingFangSC, "helvetica neue", "hiragino sans gb", arial, "microsoft yahei ui", "microsoft yahei", simsun, sans-serif;;
 }
 #header #headerimg{
     padding: 10px 15px;
@@ -47,3 +47,36 @@ body{
     /*font-family: 春联字体;*/
     font-size: 12px;
 }
+
+.posts_new_link{
+    padding-left:15px;
+
+}
+.posts_new_link a{
+    display: block;
+    width: 320px;
+    height: 30px;
+    background-color: silver;
+    line-height: 30px;
+    text-align: center;
+    transition: all 0.5s;
+}
+
+.posts_new_link a:hover{
+    background-color: #d2d2d2;
+    box-shadow: 0 0 3px black;
+}
+#left-box{float:left;width:650px;}
+#right-box{float:left;width:300px;margin:5px 0 0 10px;}
+#right-box .sbox{padding: 10px;border: 1px solid #CFCFCF;box-shadow: 0 0 5px #C6C6C6;margin-bottom: 10px;font-size:12px;}
+#right-box .sbox h2 {
+    border-left: 4px solid #3780D3;
+    height: 26px;
+    line-height: 26px;
+    padding-left: 15px;
+    font-size: 18px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.c{clear:both;width:960px;margin:0 auto;display:block;}
