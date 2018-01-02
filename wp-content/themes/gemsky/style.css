@@ -26,10 +26,15 @@
 }
 body{
     font-family: ibmplex,PingFangSC, "helvetica neue", "hiragino sans gb", arial, "microsoft yahei ui", "microsoft yahei", simsun, sans-serif;;
+    background-color: #EFF0DC;
+
+}
+* a{
+    color:#34352C !important;
 }
 #header #headerimg{
     padding: 10px 15px;
-    background-color: silver;
+    background-color: #C9CABB;
     box-shadow: 0 0 5px black;
 }
 
@@ -38,8 +43,9 @@ body{
     width:610px;
     border: 1px solid #cfcfcf;
     box-shadow: 0 0 5px #c6c6c6;
-    margin:10px 15px;
+    margin:10px 0px;
     padding: 10px 15px;
+    box-sizing: border-box;
 }
 #home-loop .post-item .post-meta{
     float: right;
@@ -49,7 +55,7 @@ body{
 }
 
 .posts_new_link{
-    padding-left:15px;
+    padding-left:0;
 
 }
 .posts_new_link a{
@@ -66,8 +72,8 @@ body{
     background-color: #d2d2d2;
     box-shadow: 0 0 3px black;
 }
-#left-box{float:left;width:650px;}
-#right-box{float:left;width:300px;margin:5px 0 0 10px;}
+#left-box{float:left;width:660px;}
+#right-box{float:left;width:300px;margin: 5px 0 0 0;}
 #right-box .sbox{padding: 10px;border: 1px solid #CFCFCF;box-shadow: 0 0 5px #C6C6C6;margin-bottom: 10px;font-size:12px;}
 #right-box .sbox h2 {
     border-left: 4px solid #3780D3;
@@ -80,3 +86,8 @@ body{
 }
 
 .c{clear:both;width:960px;margin:0 auto;display:block;}
+.c .footer{
+    padding-top: 10px;
+    height:120px;
+}
+.cat-title{padding: 10px;border: 1px solid #CFCFCF;box-shadow: 0 0 5px #C6C6C6;margin: 10px 0 0 0;font-size:12px;}
