@@ -1,0 +1,31 @@
+[
+  {
+    "clientType": "wall",
+    "name": "Planar Wall"
+  },
+  {
+    "clientType": "laptop",
+    "name": "Chrome Pixel One",
+    "color": "80deea"
+  },
+  {
+    "clientType": "laptop",
+    "name": "Chrome Pixel Two",
+    "color": "ab47bc"
+
+  },
+  {
+    "clientType": "laptop",
+    "name": "Chrome Pixel Three",
+    "color": "69f0ae"
+  },
+  {
+    "clientType": "laptop",
+    "name": "Chrome Pixel Four",
+    "color": "ffd600"
+  },
+  {
+    "clientType": "combo",
+    "name": "Chrome Experiment (combo)"
+  }
+]

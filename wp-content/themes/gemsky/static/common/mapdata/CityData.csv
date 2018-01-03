@@ -1,0 +1,66 @@
+Id,City,Country,Lat,Long,Type,Color
+bangkok,Bangkok,Thailand,13.756331,100.501765,major,#01579b
+barcelona,Barcelona,Spain,41.385064,2.173403,major,#ff1744
+berlin,Berlin,Germany,52.520007,13.404954,major,#64b5f6
+cairo,Cairo,Egypt,30.04442,31.235712,major,#cddc39
+delhi,Delhi,India,21.566381,73.220507,major,#00e676
+istanbul,Istanbul,Turkey,41.00527,28.97696,major,#ff8a65
+jakarta,Jakarta,Indonesia,-6.208763,106.845599,major,#26a69a
+lima,Lima,Peru,-12.046374,-77.042793,major,#00796b
+london,London,United Kingdom,51.507351,-0.127758,major,#8e24aa
+madrid,Madrid,Spain,40.416775,-3.70379,major,#ad1457
+mexicocity,Mexico City,Mexico,19.432608,-99.133208,major,#eeff41
+moscow,Moscow,Russia,55.755826,37.6173,major,#e65100
+mumbai,Mumbai,India,19.075984,72.877656,major,#64dd17
+newyork,New York,United States,40.712784,-74.005941,major,#ec407a
+paris,Paris,France,48.856614,2.352222,major,#651fff
+saopaulo,Sao Paulo,Brazil,-23.55052,-46.633309,major,#ffd54f
+seoul,Seoul,South Korea,37.566535,126.977969,major,#ccff90
+sydney,Sydney,Australia,-33.867487,151.20699,major,#26c6da
+hongkong,Hong Kong,China,22.396428,114.109497,major,#ffcdd2
+tokyo,Tokyo,Japan,35.689487,139.691706,major,#b3e5fc
+ystradmynach,Ystrad Mynach,United Kingdom,51.642387,-3.235044,minor,
+ixmiquilpan,Ixmiquilpan,Mexico,20.483141,-99.217117,minor,
+milagro,Milagro,Ecuador,2.134722,-79.586737,minor,
+tula,Tula,Mexico,20.05,-99.35,minor,
+santodomingo,Santo Domingo,Ecuador,-0.254167,-79.171944,minor,
+clemson,Clemson,United States,34.683438,-82.837365,minor,
+stanford,Stanford,United States,37.424106,-122.166076,minor,
+roorkee,Roorkee,India,29.854263,77.888,minor,
+kharagpur,Kharagpur,India,22.330239,87.323653,minor,
+houghton,Houghton,United States,47.121133,-88.569418,minor,
+karma,Karma,India,24.724795,84.020377,minor,
+losaltoshills,Los Altos Hills,United States,37.379663,-122.137464,minor,
+kulim,Kulim,Malaysia,5.371742,100.555337,minor,
+kualakrai,Kuala Krai,Malaysia,5.530813,102.201851,minor,
+clovis,Clovis,United States,36.825228,-119.702919,minor,
+joinvillelepont,Joinville-le-Pont,France,48.821267,2.472043,minor,
+montpelier,Montpelier,United States,44.260059,-72.575387,minor,
+whitehorse,Whitehorse,Canada,60.721187,-135.056845,minor,
+mansoura,Mansoura,Egypt,31.040948,31.37847,minor,
+moscow,Moscow,United States,46.732387,-117.000165,minor,
+oceancity,Ocean City,United States,38.336503,-75.084906,minor,
+copalisbeach,Copalis Beach,United States,47.112586,-124.173788,minor,
+berlin,Berlin,United States,38.322615,-75.217689,minor,
+middletownship,Middle Township,United States,39.120162,-74.845191,minor,
+salisbury,Salisbury,United States,38.857058,-75.856602,minor,
+darwin,Darwin,Australia,-12.462827,130.841777,minor,
+franklin,Franklin,United States,35.925064,-86.86889,minor,
+woodlawn,Woodlawn,United States,39.322884,-76.728028,minor,
+chapelhill,Chapel Hill,United States,35.9132,-79.055845,minor,
+ballarat,Ballarat,Australia,-37.563649,143.867187,minor,
+hoedspruit,Hoedspruit,South Africa,-24.354167,30.947222,minor,
+pratt,Pratt,United States,37.643907,-98.737591,minor,
+jackson,Jackson,United States,43.479929,-110.762428,minor,
+roseburg,Roseburg,United States,43.216505,-123.341738,minor,
+orono,Orono,United States,44.883113,-68.671941,minor,
+runcorn,Runcorn,United Kingdom,53.342078,-2.729673,minor,
+colwood,Colwood,Canada,48.428756,-123.488893,minor,
+yopal,Yopal,Colombia,5.346555,-72.405563,minor,
+cuitlahuac,Cuitlahuac,Mexico,19.457343,-99.18153,minor,
+bathgate,Bathgate,United Kingdom,55.9024,-3.643118,minor,
+ocana,Ocana,Colombia,8.233333,-73.35,minor,
+oruro,Oruro,Bolivia,-17.966667,-67.116667,minor,
+sogamoso,Sogamoso,Colombia,5.716667,-72.916667,minor,
+cajamarca,Cajamarca,Peru,-6.454967,-78.838264,minor,
+juliaca,Juliaca,Peru,-15.499688,-70.129653,minor,
