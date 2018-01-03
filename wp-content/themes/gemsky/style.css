@@ -167,7 +167,7 @@ body{
         transform:rotate(-45deg);
     }
 
-    #content{
+    #index{
         margin: 20px 5% !important;
 
     }
@@ -207,14 +207,11 @@ body{
     background-color: silver;
 }
 
-#content{
+#index{
     margin: 20px 10%;
-    min-height:800px;
+    min-height:1080px;
+}
 
-}
-#content .ispage div{
-    margin: 0.5rem 0;
-}
 .content-view{
     margin: 20px 10%;
 }
@@ -253,4 +250,28 @@ body{
     left:5%;
     top:5px;
     font-size: 10px;
+}
+
+/*首页文章列表*/
+#index .post-item{
+    width:100%;
+    box-sizing: border-box;
+    min-height: 120px;
+
+}
+#index .post-item .post-title{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+#index .post-item .post-content{
+    font-size: 15px;
+    text-indent:30px;
+    margin-bottom: 20px;
+}
+#index .post-item .post-meta{
+    position: absolute;
+    bottom:0;
+    right:5px;
+    /*font-family: 春联字体;*/
+    font-size: 12px;
 }
