@@ -8,4 +8,8 @@ window.onload = function () {
     $('#nav').visibility({
         type: 'fixed'
     });
+    $('.ui.dropdown')
+        .dropdown()
+    ;
 };
+
