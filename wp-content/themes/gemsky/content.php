@@ -24,7 +24,7 @@ update_post_meta( $post->ID, '_zan', $zan + 1 );
     ?>
 
 
-    <div class="post-download">
+    <div class="post-download ui segment">
         文件下载：<br />
         <?php
         foreach( $downloads as $download ){

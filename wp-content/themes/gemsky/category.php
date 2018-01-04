@@ -1,38 +1,54 @@
 <?php get_header(); ?>
-    <div class="c">
-        <div class="cat-title">【<?php single_cat_title(); ?>】分类下的文章：</div>
-    </div>
-    <div class="c">
-        <div id="left-box">
-            <div id="home-loop">
-                <?php
-                if( have_posts() ){
-                    while( have_posts() ){
+<div id="category" class="content-view">
+    <div class="ui two column stackable grid ">
 
-                        //获取下一篇文章的信息，并且将信息存入全局变量 $post 中
-                        the_post();
-                        ?>
-                        <div class="post-item">
-                            <div class="post-title"><h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a><h2></div>
+        <div class="ten wide column">
+
+            <div class="ui segment">
+                <div>
+                【<?php single_cat_title(); ?>】分类下的文章：
+                </div>
+				<?php
+				if ( have_posts() ) {
+					while ( have_posts() ) {
+						the_post();
+						?>
+
+                        <div class="ui segment post-item">
+                            <div class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                            </div>
                             <div class="post-content"><?php the_content(); ?></div>
                             <div class="post-meta">
-                                <?php _e( 'category', 'huangcong' ); ?>：<?php the_category(','); ?><span>|</span>
-                                <?php _e( 'author', 'huangcong' ); ?>：<?php the_author(); ?><span>|</span>
-                                <?php echo __( 'time', 'huangcong' ); ?>：<?php the_time( 'Y-m-d' ); ?>
-                                <?php edit_post_link( __( 'Edit','huangcong' ), ' <span>|</span> ', '' ); ?>
+								<?php _e( 'category', 'gemsky' );
+								echo " : ";
+								the_category( '、' ); ?>
+								<?php _e( 'author', 'gemsky' );
+								echo " : ";
+								the_author(); ?>
+								<?php _e( 'time', 'gemsky' );
+								echo " : ";
+								the_time( 'Y-m-d' ); ?><span>|</span>
+                                阅读量：<?php echo( empty( get_post_meta( $post->ID, '_zan', true ) ) ? 0 : get_post_meta( $post->ID, '_zan', true ) ); ?>
+								<?php edit_post_link( __( 'edit', 'gemsky' ), ' <span>|</span> ', '' ); ?>
                             </div>
                         </div>
-                        <?php
-                    }
-                }else{
-                    echo '没有日志可以显示';
-                }
-                ?>
-            </div>
-            <div class="posts_nav_link">
-                <?php posts_nav_link(); ?>
+						<?php
+					}
+				} else {
+					echo '分类下没有日志';
+				}
+				?>
+                <div class="posts_new_link">
+					<?php posts_nav_link(); ?>
+                </div>
             </div>
         </div>
-        <?php get_sidebar(); ?>
+
+        <div class="six wide column">
+            <div class="ui segment">
+				<?php get_sidebar(); ?>
+            </div>
+        </div>
     </div>
+</div>
 <?php get_footer(); ?>

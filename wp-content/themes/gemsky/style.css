@@ -51,7 +51,8 @@
     src: url('./fonts/IBMPlexSans-TextItalic.ttf') ;
 }
 body{
-    font-family: ibmplex,PingFangSC, "helvetica neue", "hiragino sans gb", arial, "microsoft yahei ui", "microsoft yahei", simsun, sans-serif !important;
+    /*font-family: ibmplex,PingFangSC, "helvetica neue", "hiragino sans gb", arial, "microsoft yahei ui", "microsoft yahei", simsun, sans-serif !important;*/
+    font-family: ibmplex,-apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", sans-serif !important;
     /*font-family: "禹卫行书字体",ibmplex,PingFangSC, "helvetica neue", "hiragino sans gb", arial, "microsoft yahei ui", "microsoft yahei", simsun, sans-serif;*/
     background-color: #EFF0DC;
 
@@ -123,8 +124,19 @@ body{
 /*更新style*/
 @media only screen and (max-width: 1044px){
 
+
+
+
+    .content-view{
+        margin: 20px 0% !important;
+    }
+
+
+}
+@media only screen and (max-width:767px){
     #nav{
         min-width: 320px;
+        overflow: hidden;
     }
     #nav #pc-bar{
         display: none;
@@ -167,14 +179,13 @@ body{
         transform:rotate(-45deg);
     }
 
-    #index{
-        margin: 20px 5% !important;
-
+    .content-view>div>div{
+        padding: 0 0 !important;
     }
-
 }
 
 #nav{
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", sans-serif; !important;
     margin: 0.1px 0;
     border-radius: 0;
     padding-left: 20px;
@@ -207,7 +218,7 @@ body{
     background-color: silver;
 }
 
-#index{
+#index,#category,#single,#page{
     margin: 20px 10%;
     min-height:1080px;
 }
@@ -216,6 +227,7 @@ body{
     margin: 20px 10%;
 }
 #footer{
+    position: relative;
     text-align: center;
     min-height: 180px;
     /*background-image:linear-gradient(to top, #525252, #adadad);*/
@@ -223,7 +235,7 @@ body{
     color:#ffffff;
 }
 #footer .footer-line{
-    height: 3px;
+    height: 1px;
     display: block;
     width: 90%;
     background-color: #ffffff;
@@ -252,26 +264,96 @@ body{
     font-size: 10px;
 }
 
-/*首页文章列表*/
-#index .post-item{
+#footer>div:nth-child(2)>div:first-child>p{
+    font-size: 22px;
+    font-family:"禹卫行书字体";
+}
+
+/*文章列表*/
+.post-item{
     width:100%;
     box-sizing: border-box;
     min-height: 120px;
 
 }
-#index .post-item .post-title{
+.post-item .post-title{
     font-size: 18px;
     margin-bottom: 10px;
 }
-#index .post-item .post-content{
-    font-size: 15px;
-    text-indent:30px;
-    margin-bottom: 20px;
+.post-item .post-content{
+    font-size: 13px;
+    text-indent:26px;
+    margin-bottom: 16px;
 }
-#index .post-item .post-meta{
+.post-item .post-meta{
     position: absolute;
     bottom:0;
     right:5px;
     /*font-family: 春联字体;*/
     font-size: 12px;
+}
+
+#sidebar{
+
+}
+#sidebar h2{
+    font-size: 16px;
+}
+#sidebar>.sbox{
+    position: relative;
+    background: #fff;
+    box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+    margin: 1rem 0;
+    margin-top:0;
+    padding: 1em 1em;
+    border-radius: .28571429rem;
+    border: 1px solid rgba(34,36,38,.15);
+}
+#sidebar>.sbox>div{
+    text-indent: 40px;
+}
+
+#copyright{
+    position: absolute;
+    right:10px;
+    bottom:0;
+    font-size: 8px;
+    color:grey;
+}
+#copyright a{
+    color:grey;
+}
+
+
+/*分类目录页样式*/
+#category{
+
+}
+
+#comment ul,li,ol{
+    list-style-type: none;
+}
+#comment>ol>li{
+    position: relative;
+    background: #fff;
+    box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+    margin: 1rem 0;
+    padding: 1em 1em;
+    border-radius: .28571429rem;
+    border: 1px solid rgba(34,36,38,.15);
+}
+#comment .comment-body{
+    position: relative;
+    background: #fff;
+    box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+    margin: 1rem 0;
+    padding: 1em 1em;
+    border-radius: .28571429rem;
+    border: 1px solid rgba(34,36,38,.15);
+}
+#comment #commentform .comment-form-comment>label{
+    display: none;
+}
+#page404{
+    margin-top: 20px;
 }
