@@ -86,14 +86,14 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<?php
-			wp_nav_menu( array(  
+			wp_nav_menu( array(
 					'theme_location' => 'primary',
 					'container'  => 'nav-collapse collapse navbar-inverse-collapse',
 					'menu_class' => 'nav navbar-nav navbar-right',
 					'fallback_cb' => 'webriti_fallback_page_menu',
 					'walker' => new webriti_nav_walker()
 					)
-				);	
+				);
 			?>
 		</div><!-- /.navbar-collapse -->	 
 	</nav>		

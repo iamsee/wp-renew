@@ -42,15 +42,22 @@
 			'menu_class'      => '', //ul标签class
 			'menu_id'         => 'menu-ul',//ul标签id
 			'echo'            => true,//是否打印，默认是true，如果想将导航的代码作为赋值使用，可设置为false
-			'fallback_cb'     => 'wp_page_menu',//备用的导航菜单函数，用于没有在后台设置导航时调用
-			'before'          => '',//显示在导航a标签之前
-			'after'           => '',//显示在导航a标签之后
+			'fallback_cb'     => 'gemsky_menu',//备用的导航菜单函数，用于没有在后台设置导航时调用
+			'before'          => '[',//显示在导航a标签之前
+			'after'           => ']',//显示在导航a标签之后
 			'link_before'     => '',//显示在导航链接名之后
 			'link_after'      => '',//显示在导航链接名之前
 			'items_wrap'      => '<ul id="%1$s">%3$s</ul>',
 			'depth'           => 0,////显示的菜单层数，默认0，0是显示所有层
 			'walker'         => new wp_menu_walker() //调用一个对象定义显示导航菜单 ));
 		);
+//		$default = array(
+//            'theme_location' => '',
+//            'container'  => 'nav-collapse collapse navbar-inverse-collapse',
+//            'menu_class' => 'nav navbar-nav navbar-right',
+////					'fallback_cb' => 'webriti_fallback_page_menu',
+//            'walker' => new wp_menu_walker()
+//        );
         wp_nav_menu($default);
 
 	    ?>
