@@ -32,8 +32,5 @@ update_post_meta( $post->ID, '_zan', $zan + 1 );
         }
         ?>
     </div>
-    <div class="post-nav">
-        <?php previous_post_link('上一篇：%link'); ?><br />
-        <?php next_post_link('下一篇：%link'); ?>
-    </div>
+
 </div>

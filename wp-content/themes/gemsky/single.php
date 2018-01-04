@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-    <div id="single">
+    <div id="single" class="content-view">
 
         <div class="ui two column stackable grid ">
 
@@ -15,6 +15,10 @@
 					//加载 content-wpcj.php 模版文件，如果文件不存在，则调用content.php
 					get_template_part( 'content', $name );
 					?>
+                </div>
+                <div class="post-nav">
+		            <?php previous_post_link('上一篇：%link'); ?><br />
+		            <?php next_post_link('下一篇：%link'); ?>
                 </div>
 	            <?php comments_template(); ?>
             </div>

@@ -292,6 +292,12 @@ body{
     /*font-family: 春联字体;*/
     font-size: 12px;
 }
+.post-download{
+    margin-bottom: 25px !important;
+}
+.post-nav{
+    margin-bottom: 20px !important;
+}
 
 #sidebar{
 
@@ -330,8 +336,16 @@ body{
 
 }
 
+
+/*评论样式*/
+#comment .commentlist{
+    padding:0 0 !important;
+}
+#comment ul.children{
+    padding-left: 10px !important;
+}
 #comment ul,li,ol{
-    list-style-type: none;
+    /*list-style-type: none;*/
 }
 #comment>ol>li{
     position: relative;
@@ -353,6 +367,12 @@ body{
 }
 #comment #commentform .comment-form-comment>label{
     display: none;
+}
+
+#comment .comment-meta.commentmetadata{
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 #page404{
     margin-top: 20px;
