@@ -227,6 +227,54 @@
     iamseeJSUtil.ThreeJS = ThreeJS
 
 
+    var Tween = {}
+    Tween.listHeightShow = function(k,v,h) {
+        if (v.style.marginTop == h*(k+1)+'px') {
+        }
+        else {
+            var from = {x: 0}
+            new TWEEN.Tween(from)
+                .to({
+                    x: (k+1)*h,
+                },  (k+1) * 100)
+                .easing(TWEEN.Easing.Linear.None)
+                .onUpdate(function () {
+                    v.style.display = 'block'
+                    v.style.marginTop = from.x.toFixed(0)+'px'
+
+                    // if (from.x == 39) {
+                    //     v.style.height = ''
+                    // }
+
+                })
+                .start();
+        }
+    }
+
+    Tween.listHeightHide = function(k,v,h) {
+        if (v.style.marginTop == '0px') {
+        }
+        else {
+            var from = {x: (k+1)*h}
+            new TWEEN.Tween(from)
+                .to({
+                    x: 0,
+                }, (k+1) * 100)
+                .easing(TWEEN.Easing.Linear.None)
+                .onUpdate(function () {
+                    v.style.marginTop = from.x.toFixed(0) + 'px'
+                    if (from.x == 0) {
+                        setTimeout(function () {
+                            v.style.display = 'none'
+
+                        },500)
+                    }
+                })
+                .start();
+        }
+    }
+    iamseeJSUtil.Tween = Tween
+
     window.iamseeJSUtil = iamseeJSUtil;
 
 }).call(this);

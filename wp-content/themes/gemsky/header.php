@@ -15,7 +15,7 @@
 
     <title><?php bloginfo( 'name' ); ?></title>
 
-    <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" type="text/css"/>
+<!--    <link rel="stylesheet" href="--><?php //bloginfo( 'stylesheet_url' ); ?><!--" type="text/css"/>-->
 
 	<?php wp_head(); ?>
 </head>
@@ -23,7 +23,7 @@
 
 <body>
 
-<script src="<?php echo get_template_directory_uri(); ?>/init.js"></script>
+<!--<script src="--><?php //echo get_template_directory_uri(); ?><!--/init.js"></script>-->
 
 <nav id="nav" class="ui inverted menu">
     <div class="header item" id="pc-bar">琳琅天上</div>
@@ -32,9 +32,10 @@
         <span></span>
     </div>
     <div class="right menu">
+        <div id="topMenuBg"></div>
 		<?php
 		$defaults = array(
-			'theme_location'  => '',//用于在调用导航菜单时指定注册过的某一个导航菜单位置，如果没有指定，则显示第一个。
+			'theme_location'  => 'top_menu',//用于在调用导航菜单时指定注册过的某一个导航菜单位置，如果没有指定，则显示第一个。
 			//如：主菜单primary，次要(左侧)菜单secondary，
 			//具体可通过firebug 查看菜单位置的select标签的name属性。
 			'menu'            => '',//使用导航菜单的名称调用菜单，可以是 id, slug, name (按顺序匹配的) 。
@@ -43,17 +44,17 @@
 			//也可以用false（container => false）去掉ul父节点标签。
 			'container_class' => 'menu-{menu slug}-container',//ul 父节点的 class 属性值。
 			'container_id'    => '',//ul 父节点的 id 属性值。
-			'menu_class'      => 'menu',//ul 节点的 class 属性值。
-			'menu_id'         => '',//默认值: menu slug, 自增长的。ul 节点的 id 属性值。
+			'menu_class'      => 'ui right floated  item',//ul 节点的 class 属性值。
+			'menu_id'         => 'topMenu',//默认值: menu slug, 自增长的。ul 节点的 id 属性值。
 			'echo'            => true,//确定直接显示导航菜单还是返回 HTML 片段，
 			//如果想将导航的代码作为赋值使用，可设置为false。
-			'fallback_cb'     => 'wp_page_menu',// 用于没有在后台设置导航时调的回调函数。
+//			'fallback_cb'     => 'wp_page_menu',// 用于没有在后台设置导航时调的回调函数。
 			'before'          => '',//显示在每个菜单链接前的文本。
 			'after'           => '',//显示在每个菜单链接后的文本。
 			'link_before'     => '',//显示在每个菜单链接文本前的文本。
 			'link_after'      => '',//显示在每个菜单链接文本后的文本。
-			'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',//使用字符串替换修改ul的class。
-			'depth'           => 0, //显示菜单的深度, 当数值为 0 时显示所有深度的菜单。
+//			'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',//使用字符串替换修改ul的class。
+			'depth'           => 2, //显示菜单的深度, 当数值为 0 时显示所有深度的菜单。
 			'walker'          => new wp_menu_walker() //自定义的遍历对象，调用一个对象定义显示导航菜单。
 			//若无参数这调用 Walker_Nav_Menu类的walker,
 			//若自定义只需模仿Walker_Nav_Menu继承Walker
@@ -65,7 +66,7 @@
 		////					'fallback_cb' => 'webriti_fallback_page_menu',
 		//            'walker' => new wp_menu_walker()
 		//        );
-		wp_nav_menu( $default );
+		wp_nav_menu($defaults);
 
 		?>
         <!--        <a class="item" href="/">首页</a>-->
