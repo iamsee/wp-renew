@@ -31,7 +31,7 @@ class wp_menu_walker extends Walker_Nav_Menu {
 
 	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 		if($depth == 0){
-			$output .= "<li class='menu-item'><a href='http://baidu.com'>百度</a>";
+			$output .= "<li class='menu-item'><a href='#'>百度</a>";
 		}
 		else{
 			$output .= "<li class='menu-item'>";

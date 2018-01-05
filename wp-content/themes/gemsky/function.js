@@ -7,12 +7,40 @@ window.onload = function () {
         TWEEN.update( time );
     })()
 
+    init()
+    listen()
+
+    window.rel
+};
+
+function init() {
+    init_semantic()
+    init_style()
+    
+    function init_semantic() {
+        $('.ui.dropdown').dropdown();
+    }
+    function init_style() {
+        $('#nav').visibility({
+            type: 'fixed'
+        });
+
+    }
+}
+function listen() {
+
+    window.onresize = function(){
+
+    }
     $('#mobile-bar').on('click',function () {
         $(this).children().toggleClass('active')
+
     })
-    $('#nav').visibility({
-        type: 'fixed'
-    });
+    $("#topMenu>li *").on('click',function () {
+        $("#topMenu>li>a").removeClass('active')
+        $(this).addClass('active').siblings().removeClass('active')
+
+    })
     $("#topMenu>li").on('mouseover',function () {
 
         var submenu = $(this).children('.sub-menu').children()
@@ -31,7 +59,4 @@ window.onload = function () {
             iamseeJSUtil.Tween.listHeightHide(k,v,40)
         })
     })
-    $('.ui.dropdown')
-        .dropdown()
-    ;
-};
+}
