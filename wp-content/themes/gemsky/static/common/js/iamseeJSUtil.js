@@ -243,7 +243,7 @@
                     v.style.marginTop = from.x.toFixed(0)+'px'
 
                     // if (from.x == 39) {
-                    //     v.style.height = ''
+
                     // }
 
                 })

@@ -30,12 +30,20 @@ class wp_menu_walker extends Walker_Nav_Menu {
 
 
 	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-		if($depth == 0){
-			$output .= "<li class='menu-item'><a href='#'>百度</a>";
+		helper::echo2console($item);
+		if($depth == 0 || true){
+			if($item->current){
+				$output .= "<li class='menu-item  active'><a href='". $item->url ."' class='active'>". $item->title ."</a>";
+			}
+			else{
+				$output .= "<li class='menu-item'><a href='". $item->url ."'>". $item->title ."</a>";
+
+			}
+
 		}
-		else{
-			$output .= "<li class='menu-item'>";
-		}
+//		else{
+//			$output .= "<li class='menu-item'>";
+//		}
 
 	}
 	function end_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {

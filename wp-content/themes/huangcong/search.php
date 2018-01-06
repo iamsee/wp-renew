@@ -1,5 +1,8 @@
 <? get_header(); ?>
 <div class="c">
+	<div class="cat-title">搜索词：<? echo get_search_query(); ?></div>
+</div>
+<div class="c">
 	<div id="left-box">
 		<div id="home-loop">
 			<?

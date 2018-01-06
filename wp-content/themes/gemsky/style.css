@@ -392,7 +392,7 @@ body{
     max-width: 600px;
     margin: 0 0;
     padding: 0 0;
-    max-width: 600px;
+
 }
 #topMenu *{
     width: 100px;
@@ -402,11 +402,11 @@ body{
     list-style-type: none;
     padding:0 0 ;
 
+
 }
 #topMenu li {
     /*border-top: 0.1px solid black;*/
     box-sizing: border-box;
-    background-color: dimgrey;
     cursor: pointer;
     position: relative;
     transition: all 0.5s linear;
@@ -414,7 +414,7 @@ body{
 #topMenu li:hover{
     background-color: silver;
 }
-#topMenu>li>a{
+#topMenu>li a{
     width: 100%;
     height: 100%;
     line-height: 40px;
@@ -423,12 +423,13 @@ body{
     z-index:3;
     color:#ffffff;
     transition: all 0.5s linear;
+    background-color: rgba(0, 0, 0, 0.32);
 
 }
-#topMenu>li>a:hover{
-    /*background-color: black !important;*/
-}
 #topMenu>li>a.active{
+    background-color: rgba(0, 181, 255, 0.29);
+}
+#topMenu>li>a.current-menu-item{
     background-color: rgba(0, 181, 255, 0.29);
 }
 #topMenu>li>ul{
@@ -442,6 +443,7 @@ body{
     height:39px;
     border-top: 0.2px solid black;
     display: none;
+    background-color: rgba(0, 0, 0, 0.39);
 }
 #topMenu>li>ul>li.active{
     background-color: rgba(0, 181, 255, 0.29);

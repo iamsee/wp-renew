@@ -11,6 +11,7 @@ define('WEBRITI_TEMPLATE_DIR',get_template_directory());
 define('WEBRITI_THEME_FUNCTIONS_PATH',WEBRITI_TEMPLATE_DIR.'/functions');
 
 
+require_once WEBRITI_THEME_FUNCTIONS_PATH. '/helper/setHelper.php';
 require_once WEBRITI_THEME_FUNCTIONS_PATH. '/static/setStatic.php';
 require_once WEBRITI_THEME_FUNCTIONS_PATH. '/menu/setMenus.php';
 require_once WEBRITI_THEME_FUNCTIONS_PATH. '/liteTool/setTools.php';

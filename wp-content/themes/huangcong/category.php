@@ -1,5 +1,8 @@
 <? get_header(); ?>
 <div class="c">
+	<div class="cat-title">【<? single_cat_title(); ?>】分类下的文章：</div>
+</div>
+<div class="c">
 	<div id="left-box">
 		<div id="home-loop">
 			<?
