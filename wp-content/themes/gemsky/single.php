@@ -17,10 +17,14 @@
 					?>
                 </div>
                 <div class="post-nav">
-		            <?php previous_post_link('上一篇：%link'); ?><br />
-		            <?php next_post_link('下一篇：%link'); ?>
+                    <div class="post-prev">
+						<?php previous_post_link( '上一篇：%link' ); ?>
+                    </div>
+                    <div class="post-next">
+						<?php next_post_link( '下一篇：%link' ); ?>
+                    </div>
                 </div>
-	            <?php comments_template(); ?>
+				<?php comments_template(); ?>
             </div>
 
             <div class="six wide column">

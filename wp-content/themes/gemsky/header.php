@@ -24,8 +24,12 @@
 <body>
 
 <!--<script src="--><?php //echo get_template_directory_uri(); ?><!--/init.js"></script>-->
+<div id="loading">
+    <script src="<?php echo $_SERVER['proxy']; ?>/function.js"></script>
 
-<nav id="nav" class="ui inverted menu">
+</div>
+<div id="gemsky-content">
+    <nav id="nav" class="ui inverted menu">
     <div class="header item" id="pc-bar">琳琅天上</div>
     <div class="header item" id="mobile-bar">
         <span></span>
