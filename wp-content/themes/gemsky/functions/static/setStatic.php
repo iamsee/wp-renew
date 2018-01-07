@@ -22,7 +22,7 @@ function gemsky_static()
 	wp_enqueue_script('tweenjs', $_SERVER['proxy'] . '/static/tweenjs/Tween.js');
 	wp_enqueue_script('iamseeJSUtil',$_SERVER['proxy'] . '/static/common/js/iamseeJSUtil.js',array('jquery'));
 	wp_enqueue_script('semantic', $_SERVER['proxy'] . '/static/semantic-ui/semantic.min.js',array('jquery'));
-//	wp_enqueue_script('functionjs', $_SERVER['proxy'] . '/function.js',array('jquery'));
+	wp_enqueue_script('functionjs', $_SERVER['proxy'] . '/function.js',array('jquery'),1.0,true);
 
 }
 add_action( 'wp_enqueue_scripts', 'gemsky_static' );

@@ -25,7 +25,7 @@
 
 <!--<script src="--><?php //echo get_template_directory_uri(); ?><!--/init.js"></script>-->
 <div id="loading">
-    <script src="<?php echo $_SERVER['proxy']; ?>/function.js"></script>
+<!--    <script src="--><?php //echo $_SERVER['proxy']; ?><!--/function.js"></script>-->
 
 </div>
 <div id="gemsky-content">
