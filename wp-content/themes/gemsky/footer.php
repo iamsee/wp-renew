@@ -1,4 +1,5 @@
 </div>
+
 <div id="footer">
 
     <div class="ui two column grid container">

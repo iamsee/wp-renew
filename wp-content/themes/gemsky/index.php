@@ -5,7 +5,7 @@
 
         <div class="ui two column stackable grid ">
 
-            <div class="ten wide column">
+            <div class="eleven wide column">
                 <div class="ui segment">
 					<?php
 					if ( have_posts() ) {
@@ -43,7 +43,7 @@
                 </div>
             </div>
 
-            <div class="six wide column">
+            <div class="five wide column">
                 <div class="ui segment">
 					<?php get_sidebar(); ?>
                 </div>
