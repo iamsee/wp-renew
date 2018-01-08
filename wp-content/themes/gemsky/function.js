@@ -22,15 +22,17 @@ function init() {
 
     function init_style() {
         setTopMenuBg()
+        $('.gemskyv-nav').visibility({
+            type: 'fixed',
+            offset : 0 // give some space from top of screen
 
-        $('#nav').visibility({
-            type: 'fixed'
         });
+
+        // var nav_length = $('.gemsky-nav').length
         //
-        var nav_length = $('.gemsky-nav').length
-        for(var i=1;i<nav_length;i++){
-            $($('.gemsky-nav')[i]).remove()
-        }
+        // for(var i=1;i<nav_length;i++){
+        //     $($('.gemsky-nav')[i]).remove()
+        // }
 
     }
 }
@@ -97,41 +99,43 @@ function listen() {
         start_loading()
         var do_scale = "scale(0.5,0.5)"
         var do_scale_origin = "50% 20%"
-        var do_scale_origin = ""
         var url = $(this).attr('href')
         var iframe = document.createElement('iframe')
         console.log('$("#gemsky-content")',$("#gemsky-content"))
         if($("#gemsky-content")[0] != undefined){
             $("#gemsky-content")[0].style.transform = do_scale
-            // $("#gemsky-content")[0].style.transformOrigin = do_scale_origin
+            $("#gemsky-content")[0].style.transformOrigin = do_scale_origin
 
         }
         iframe.style.display = 'none'
         iframe.src = url
         iframe.id = 'tmpIframe'
         iframe.onload = function () {
-            // $(iframe).contents().find('#gemsky-content')[0].style.transform = do_scale
-            // $(iframe).contents().find('#gemsky-content')[0].style.transformOrigin = do_scale_origin
+            $(iframe).contents().find('#gemsky-content')[0].style.transform = do_scale
+            $(iframe).contents().find('#gemsky-content')[0].style.transformOrigin = do_scale_origin
 
-            $('#gemsky-content').empty().append($(iframe).contents().find('#gemsky-content').children())
+            // $('#gemsky-content').empty().append($(iframe).contents().find('#gemsky-content').children())
             $(iframe).contents().find('#gemsky-content').insertAfter($('#gemsky-content'))
             // $(".gemsky-content")[1].style.position = 'relative'
-            // $(".gemsky-content")[1].style.transform = "translateX(100%) "+do_scale
-            // $(".gemsky-content")[1].style.transformOrigin = do_scale_origin
-            // $(".gemsky-content")[0].style.transform = "translateX(-100%) "+do_scale
-            // $(".gemsky-content")[0].style.transformOrigin = do_scale_origin
+            $(".gemsky-content")[1].style.transform = "translateX(100%) "+do_scale
+            $(".gemsky-content")[1].style.transformOrigin = do_scale_origin
+            $(".gemsky-content")[0].style.transform = "translateX(-100%) "+do_scale
+            $(".gemsky-content")[0].style.transformOrigin = do_scale_origin
             setTimeout(function () {
-                // $($(".gemsky-content")[0]).remove()
-                // $(".gemsky-content")[0].style.transform = do_scale
-                // $(".gemsky-content")[0].style.transformOrigin = do_scale_origin
+                $($(".gemsky-content")[0]).remove()
+                $(".gemsky-content")[0].style.transform = do_scale
+                $(".gemsky-content")[0].style.transformOrigin = do_scale_origin
                 setTimeout(function () {
                     $(".gemsky-content")[0].style.transform = ''
-                    // $(".gemsky-content")[0].style.transformOrigin = ''
+
+                    $(".gemsky-content")[0].style.transformOrigin = ''
+
                 },500)
                 $('#tmpIframe').remove()
                 history.pushState({}, '新页面', url)
                 end_loading()
-                start()
+                // start()
+
             },500)
 
 
@@ -205,6 +209,11 @@ window.end_loading = function(){
                 document.body.style.overflowX  = 'hidden'
                 document.getElementById('loading').style.zIndex = -1
                 setTopMenuBg()
+                setTimeout(function () {
+                    init()
+                    listen()
+                },1300)
+
 
             }
         } )
