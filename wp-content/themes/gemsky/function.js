@@ -39,8 +39,7 @@ function listen() {
     window.onresize = function () {
         setTopMenuBg()
     }
-    document.getElementById('nav').onresize = function () {
-    }
+
     $(window).on('popstate', function (event) {
         event.preventDefault()
         window.location.href = window.location.href
@@ -104,7 +103,7 @@ function listen() {
         console.log('$("#gemsky-content")',$("#gemsky-content"))
         if($("#gemsky-content")[0] != undefined){
             $("#gemsky-content")[0].style.transform = do_scale
-            $("#gemsky-content")[0].style.transformOrigin = do_scale_origin
+            // $("#gemsky-content")[0].style.transformOrigin = do_scale_origin
 
         }
         iframe.style.display = 'none'
@@ -114,7 +113,7 @@ function listen() {
             // $(iframe).contents().find('#gemsky-content')[0].style.transform = do_scale
             // $(iframe).contents().find('#gemsky-content')[0].style.transformOrigin = do_scale_origin
 
-            // $('#gemsky-content').empty().append($(iframe).contents().find('#gemsky-content').children())
+            $('#gemsky-content').empty().append($(iframe).contents().find('#gemsky-content').children())
             $(iframe).contents().find('#gemsky-content').insertAfter($('#gemsky-content'))
             // $(".gemsky-content")[1].style.position = 'relative'
             // $(".gemsky-content")[1].style.transform = "translateX(100%) "+do_scale
@@ -122,12 +121,13 @@ function listen() {
             // $(".gemsky-content")[0].style.transform = "translateX(-100%) "+do_scale
             // $(".gemsky-content")[0].style.transformOrigin = do_scale_origin
             setTimeout(function () {
-                $($(".gemsky-content")[0]).remove()
+                // $($(".gemsky-content")[0]).remove()
                 // $(".gemsky-content")[0].style.transform = do_scale
                 // $(".gemsky-content")[0].style.transformOrigin = do_scale_origin
-                // setTimeout(function () {
-                //     $(".gemsky-content")[0].style.transform = ''
-                // },700)
+                setTimeout(function () {
+                    $(".gemsky-content")[0].style.transform = ''
+                    // $(".gemsky-content")[0].style.transformOrigin = ''
+                },500)
                 $('#tmpIframe').remove()
                 history.pushState({}, '新页面', url)
                 end_loading()
