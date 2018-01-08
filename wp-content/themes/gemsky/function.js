@@ -48,11 +48,19 @@ function listen() {
     });
 
 
-    $('#mobile-bar').on('click', function () {
-        $(this).children().toggleClass('active')
+    $('.mobile-bar').on('click', function () {
+        console.log('click',$(this).children().hasClass('active'))
+        // $(this).children().toggleClass('active')/*切换页面后无法添加类*/
+        if($(this).children().hasClass('active')){
+            $(this).children().removeClass('active')
+        }
+        else{
+            $(this).children().addClass('active')
+
+        }
 
     })
-    $("#topMenu>li *").on('click', function () {
+    $("#topMenu>li *").unbind('click').bind('click', function () {
 
         if (this.tagName == 'LI') {
             $("#topMenu>li *").removeClass('active')
@@ -88,30 +96,38 @@ function listen() {
     $('a').unbind('click').bind('click', function (event) {
         event.preventDefault()
         start_loading()
+        var do_scale = "scale(0.5,0.5)"
+        var do_scale_origin = "50% 20%"
+        var do_scale_origin = ""
         var url = $(this).attr('href')
         var iframe = document.createElement('iframe')
         console.log('$("#gemsky-content")',$("#gemsky-content"))
         if($("#gemsky-content")[0] != undefined){
-            $("#gemsky-content")[0].style.transform = 'scale(0.5,0.5)'
+            $("#gemsky-content")[0].style.transform = do_scale
+            $("#gemsky-content")[0].style.transformOrigin = do_scale_origin
 
         }
         iframe.style.display = 'none'
         iframe.src = url
         iframe.id = 'tmpIframe'
         iframe.onload = function () {
-            $(iframe).contents().find('#gemsky-content')[0].style.transform = 'scale(0.5,0.5)'
+            // $(iframe).contents().find('#gemsky-content')[0].style.transform = do_scale
+            // $(iframe).contents().find('#gemsky-content')[0].style.transformOrigin = do_scale_origin
 
             // $('#gemsky-content').empty().append($(iframe).contents().find('#gemsky-content').children())
             $(iframe).contents().find('#gemsky-content').insertAfter($('#gemsky-content'))
-            $(".gemsky-content")[1].style.position = 'relative'
-            $(".gemsky-content")[1].style.transform = "translateX(100%) scale(0.5,0.5)"
-            $(".gemsky-content")[0].style.transform = "translateX(-100%) scale(0.5,0.5)"
+            // $(".gemsky-content")[1].style.position = 'relative'
+            // $(".gemsky-content")[1].style.transform = "translateX(100%) "+do_scale
+            // $(".gemsky-content")[1].style.transformOrigin = do_scale_origin
+            // $(".gemsky-content")[0].style.transform = "translateX(-100%) "+do_scale
+            // $(".gemsky-content")[0].style.transformOrigin = do_scale_origin
             setTimeout(function () {
                 $($(".gemsky-content")[0]).remove()
-                $(".gemsky-content")[0].style.transform = "scale(0.5,0.5)"
-                setTimeout(function () {
-                    $(".gemsky-content")[0].style.transform = ''
-                },700)
+                // $(".gemsky-content")[0].style.transform = do_scale
+                // $(".gemsky-content")[0].style.transformOrigin = do_scale_origin
+                // setTimeout(function () {
+                //     $(".gemsky-content")[0].style.transform = ''
+                // },700)
                 $('#tmpIframe').remove()
                 history.pushState({}, '新页面', url)
                 end_loading()
