@@ -61,7 +61,7 @@ class gemsky_mobilemenu_walker extends Walker_Nav_Menu{
 		helper::echo2console($item);
 		if($depth == 0 || true){
 			if($item->current){
-				$output .= "<li class='title  active'><i class='dropdown icon'></i><a href='". $item->url ."' class='active'>". $item->title ."</a>";
+				$output .= "<li class='title  active'><a href='". $item->url ."' class='active'>". $item->title ."</a>";
 			}
 			else{
 				$output .= "<li class='title'><a href='". $item->url ."'>". $item->title ."</a>";

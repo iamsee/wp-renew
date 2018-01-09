@@ -327,9 +327,24 @@ input[type='submit']{
 }
 .post-item .post-content{
     font-size: 13px;
-    text-indent:26px;
     margin-bottom: 16px;
+    display: flex;
 }
+.post-item .post-content .post-output>p{
+    text-indent: 26px;
+}
+.post-item .post-content .post-img{
+    margin-top: 16px;
+    padding-right: 10px;
+    text-align: center;
+}
+.post-item .post-content>div:first-child{
+    flex: 1;
+}
+.post-item .post-content>div:last-child{
+    flex: 3;
+}
+
 .post-item .post-meta{
     position: absolute;
     bottom:0;
@@ -570,6 +585,13 @@ input[type='submit']{
 #mobileMenu #mobileMenu_ul .sub-menu{
     padding-left: 10px;
 }
+#mobileMenu #mobileMenu_ul>li>a + ul{
+    margin-top: 10px;
+}#mobileMenu #mobileMenu_ul>li>ul>li:last-child{
+    margin-bottom: 0;
+    padding-bottom: 0;
+ }
+
 #gemsky-content{
     /*position: relative;*/
     background-color: #ffffff;
@@ -654,10 +676,10 @@ input[type='submit']{
 #loginOrReg{
     width: 200px;
     padding:0 0 !important;
+    display: flex;
  }
 #loginOrReg>li,#loginOrReg>a{
-    display: inline-block;
-    width: 49%;
+    flex: 1;
     height: 100%;
     line-height: 40px;
     text-align: center;

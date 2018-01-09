@@ -4,6 +4,7 @@ update_post_meta( $post->ID, '_zan', $zan + 1 );
 //                delete_post_meta( $post->ID , 'download' );
 ?>
 <div class="post-item">
+
     <div class="post-title"><h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a><h2></div>
     <div class="post-meta">
         <?php _e( 'category', 'gemsky' ); ?>：<?php the_category(','); ?><span>|</span>
