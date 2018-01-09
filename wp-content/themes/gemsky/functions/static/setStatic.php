@@ -26,3 +26,34 @@ function gemsky_static()
 
 }
 add_action( 'wp_enqueue_scripts', 'gemsky_static' );
+
+
+
+/* WordPress界登陆面Logo修改开始 */
+function custom_login_logo() { ?>
+	<style>
+		.login h1 a {
+			background-image:url(<?php echo $_SERVER["proxy"] . "/static/common/logo/琳琅天上icon.png" ?>) !important;
+			width: 140px;
+			height: 120px;
+		}
+
+		#login .submit input{
+			border: none;
+			background-color: black;
+			padding:8px 25px;
+            line-height: 16px;
+		}
+
+	</style>
+
+	<?php
+}
+add_action(login_head, custom_login_logo);
+/* WordPress登陆界面Logo修改结束 */
+/* WordPress登陆界面Logo链接修改开始 */
+function custom_loginlogo_url($url) {
+	return get_bloginfo(url);
+}
+add_filter( login_headerurl, custom_loginlogo_url );
+/* WordPress登陆界面Logo链接修改結束 */

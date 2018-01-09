@@ -29,7 +29,7 @@ define('DB_USER', 'root');
 define('DB_PASSWORD', 'zhuotong');
 
 /** MySQL主机 */
-define('DB_HOST', '127.0.0.1');
+define('DB_HOST', '192.168.2.1');
 
 /** 创建数据表时默认的文字编码 */
 define('DB_CHARSET', 'utf8mb4');

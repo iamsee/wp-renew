@@ -19,7 +19,9 @@ function init() {
     function init_semantic() {
         $('.ui.dropdown').dropdown();
     }
-
+    $('.ui.accordion')
+        .accordion()
+    ;
     function init_style() {
         setTopMenuBg()
         $('.gemskyv-nav').visibility({
@@ -36,7 +38,7 @@ function init() {
 
     }
 }
-function listen() {
+function listen(mobileclick = true) {
 
     window.onresize = function () {
         setTopMenuBg()
@@ -48,19 +50,30 @@ function listen() {
 
     });
 
+    if(mobileclick){
+        $('.mobile-bar')[0].addEventListener('click',function () {
+            console.log('click')
+            if($('.mobile-bar').children().hasClass('active')){
+                $('.mobile-bar').children().removeClass('active')
+                $('#mobileMenu').css('transform','translateY(calc(-100% - 40px))')
+                setTimeout(function () {
+                    $('#mobileMenu').css('opacity','0')
+                },300)
 
-    $('.mobile-bar').on('click', function () {
-        console.log('click',$(this).children().hasClass('active'))
-        // $(this).children().toggleClass('active')/*切换页面后无法添加类*/
-        if($(this).children().hasClass('active')){
-            $(this).children().removeClass('active')
-        }
-        else{
-            $(this).children().addClass('active')
+            }
+            else{
+                $('.mobile-bar').children().addClass('active')
+                $('#mobileMenu').css('opacity','1')
 
-        }
+                $('#mobileMenu').css('transform','translateY(calc(0%))')
 
-    })
+            }
+
+
+        })
+
+    }
+
     $("#topMenu>li *").unbind('click').bind('click', function () {
 
         if (this.tagName == 'LI') {
@@ -95,53 +108,59 @@ function listen() {
     })
 
     $('a').unbind('click').bind('click', function (event) {
-        event.preventDefault()
-        start_loading()
-        var do_scale = "scale(0.5,0.5)"
-        var do_scale_origin = "50% 20%"
         var url = $(this).attr('href')
-        var iframe = document.createElement('iframe')
-        console.log('$("#gemsky-content")',$("#gemsky-content"))
-        if($("#gemsky-content")[0] != undefined){
-            $("#gemsky-content")[0].style.transform = do_scale
-            $("#gemsky-content")[0].style.transformOrigin = do_scale_origin
+        var myUrl = iamseeJSUtil.parseURL(url)
+        console.log(myUrl)
+        if(myUrl.file == '' && myUrl.path != "/wp-admin/"){
+            event.preventDefault()
+            start_loading()
+            var do_scale = "scale(0.5,0.5)"
+            var do_scale_origin = "50% 20%"
 
-        }
-        iframe.style.display = 'none'
-        iframe.src = url
-        iframe.id = 'tmpIframe'
-        iframe.onload = function () {
-            $(iframe).contents().find('#gemsky-content')[0].style.transform = do_scale
-            $(iframe).contents().find('#gemsky-content')[0].style.transformOrigin = do_scale_origin
+            var iframe = document.createElement('iframe')
+            console.log('$("#gemsky-content")',$("#gemsky-content"))
+            if($("#gemsky-content")[0] != undefined){
+                $("#gemsky-content")[0].style.transform = do_scale
+                $("#gemsky-content")[0].style.transformOrigin = do_scale_origin
 
-            // $('#gemsky-content').empty().append($(iframe).contents().find('#gemsky-content').children())
-            $(iframe).contents().find('#gemsky-content').insertAfter($('#gemsky-content'))
-            // $(".gemsky-content")[1].style.position = 'relative'
-            $(".gemsky-content")[1].style.transform = "translateX(100%) "+do_scale
-            $(".gemsky-content")[1].style.transformOrigin = do_scale_origin
-            $(".gemsky-content")[0].style.transform = "translateX(-100%) "+do_scale
-            $(".gemsky-content")[0].style.transformOrigin = do_scale_origin
-            setTimeout(function () {
-                $($(".gemsky-content")[0]).remove()
-                $(".gemsky-content")[0].style.transform = do_scale
+            }
+            iframe.style.display = 'none'
+            iframe.src = url
+            iframe.id = 'tmpIframe'
+            iframe.onload = function () {
+                $(iframe).contents().find('#gemsky-content')[0].style.transform = do_scale
+                $(iframe).contents().find('#gemsky-content')[0].style.transformOrigin = do_scale_origin
+
+                // $('#gemsky-content').empty().append($(iframe).contents().find('#gemsky-content').children())
+                $(iframe).contents().find('#gemsky-content').insertAfter($('#gemsky-content'))
+                // $(".gemsky-content")[1].style.position = 'relative'
+                $(".gemsky-content")[1].style.transform = "translateX(100%) "+do_scale
+                $(".gemsky-content")[1].style.transformOrigin = do_scale_origin
+                $(".gemsky-content")[0].style.transform = "translateX(-100%) "+do_scale
                 $(".gemsky-content")[0].style.transformOrigin = do_scale_origin
                 setTimeout(function () {
-                    $(".gemsky-content")[0].style.transform = ''
+                    $($(".gemsky-content")[0]).remove()
+                    $(".gemsky-content")[0].style.transform = do_scale
+                    $(".gemsky-content")[0].style.transformOrigin = do_scale_origin
+                    setTimeout(function () {
+                        $(".gemsky-content")[0].style.transform = ''
 
-                    $(".gemsky-content")[0].style.transformOrigin = ''
+                        $(".gemsky-content")[0].style.transformOrigin = ''
+
+                    },500)
+                    $('#tmpIframe').remove()
+                    history.pushState({}, '新页面', url)
+                    end_loading()
+                    // start()
 
                 },500)
-                $('#tmpIframe').remove()
-                history.pushState({}, '新页面', url)
-                end_loading()
-                // start()
-
-            },500)
 
 
 
+            }
+            document.body.appendChild(iframe)
         }
-        document.body.appendChild(iframe)
+
     })
 
 
