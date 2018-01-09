@@ -44,7 +44,7 @@
     </div>
 </div>
 <div id="gemsky-content" class="gemsky-content">
-    <nav id="nav" class="ui inverted menu gemskyv-nav">
+    <nav id="nav" class="ui inverted menu gemsky-nav">
         <div class="header item" id="pc-bar">琳琅天上</div>
         <div class="header item mobile-bar" id="mobile-bar">
             <span></span>

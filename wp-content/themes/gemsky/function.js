@@ -24,17 +24,23 @@ function init() {
     ;
     function init_style() {
         setTopMenuBg()
-        $('.gemskyv-nav').visibility({
+
+
+
+        $('.gemsky-nav').visibility({
             type: 'fixed',
             offset : 0 // give some space from top of screen
 
         });
 
-        // var nav_length = $('.gemsky-nav').length
-        //
-        // for(var i=1;i<nav_length;i++){
-        //     $($('.gemsky-nav')[i]).remove()
-        // }
+        var nav_length = $('.gemsky-nav').length
+        console.log('nav_length',nav_length)
+        for(var i=1;i<nav_length;i++){
+            console.log('nav_length .gemsky-nav '+i+' removed')
+            $($('.gemsky-nav')[i]).remove()
+        }
+
+
 
     }
 }
