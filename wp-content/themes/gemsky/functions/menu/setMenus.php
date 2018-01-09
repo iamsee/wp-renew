@@ -58,7 +58,6 @@ class gemsky_topmenu_walker extends Walker_Nav_Menu {
 
 class gemsky_mobilemenu_walker extends Walker_Nav_Menu{
 	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-		helper::echo2console($item);
 		if($depth == 0 || true){
 			if($item->current){
 				$output .= "<li class='title  active'><a href='". $item->url ."' class='active'>". $item->title ."</a>";

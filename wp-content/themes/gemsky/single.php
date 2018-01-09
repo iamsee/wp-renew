@@ -18,10 +18,22 @@
                 </div>
                 <div class="post-nav">
                     <div class="post-prev">
-						<?php previous_post_link( '上一篇：%link' ); ?>
+						<?php
+						if ( get_previous_post() ) {
+							previous_post_link( "上一篇:%link", "%title", true );
+						} else {
+							echo "上一篇：没有了，已经是最后文章";
+						}
+						?>
                     </div>
                     <div class="post-next">
-						<?php next_post_link( '下一篇：%link' ); ?>
+						<?php
+						if ( get_next_post() ) {
+							next_post_link( "下一篇:%link", "%title", true );
+						} else {
+							echo "下一篇：没有了";
+						}
+						?>
                     </div>
                 </div>
 				<?php comments_template(); ?>

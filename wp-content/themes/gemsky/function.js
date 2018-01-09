@@ -33,6 +33,12 @@ function init() {
 
         });
 
+        // $('.content-view>div>div:last-child').visibility({
+        //     type: 'fixed',
+        //     offset : 40 // give some space from top of screen
+        //
+        // });
+
         var nav_length = $('.gemsky-nav').length
         console.log('nav_length',nav_length)
         for(var i=1;i<nav_length;i++){
@@ -76,6 +82,9 @@ function listen(mobileclick = true) {
             }
 
 
+        })
+        $('#close-mobile-menu')[0].addEventListener('click',function () {
+            $('.mobile-bar').click()
         })
 
     }

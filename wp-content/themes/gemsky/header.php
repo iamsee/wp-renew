@@ -87,7 +87,9 @@
 	        wp_nav_menu( $defaults );
 
 	        ?>
-
+            <div id="close-mobile-menu">
+                <h4 class="ui horizontal divider header"><i class="minus icon"></i> </h4>
+            </div>
         </div>
         <div class="right menu">
             <div id="topMenuBg" class="topMenuBg"></div>

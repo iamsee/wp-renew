@@ -17,7 +17,34 @@
                         <div class="ui segment post-item">
                             <div class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                             </div>
-                            <div class="post-content"><?php the_content(); ?></div>
+                            <div class="post-content">
+		                        <?php
+		                        $array_image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), array(
+			                        100,
+			                        60
+		                        ) );
+		                        if ( ! empty( $array_image_url[0] ) ) {
+
+
+			                        ?>
+                                    <div class="post-img">
+
+                                        <a href="<?php the_permalink(); ?>" style="background-image: url(<?php echo $array_image_url[0] ?>);background-repeat: no-repeat;display: block;
+                                                width: 100px;
+                                                height: 60px;
+                                                margin: 0 auto;"></a>
+<!--                                        <img src="--><?php //echo $array_image_url[0] ?><!--"-->
+<!--                                             style="width: 100px;height: 60px"/>-->
+
+
+                                    </div>
+		                        <?php } ?>
+                                <div class="post-output">
+
+			                        <?php the_content(); ?>
+
+                                </div>
+                            </div>
                             <div class="post-meta">
 								<?php _e( 'category', 'gemsky' );
 								echo " : ";
