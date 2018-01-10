@@ -52,7 +52,9 @@ function init() {
 function listen(mobileclick = true) {
 
     window.onresize = function () {
+        console.log('resize')
         setTopMenuBg()
+        initMap()
     }
 
     $(window).on('popstate', function (event) {

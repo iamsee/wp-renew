@@ -13,8 +13,12 @@
 </style>
 <script>
 
-        var documentHeight = document.body.offsetHeight
-        setDomHeight($('#map'),documentHeight-40)
+        window.initMap = function () {
+            var documentHeight = document.body.offsetHeight
+            setDomHeight($('#map'),documentHeight-40)
+        }
+        initMap()
+
 
 </script>
 <script src="http://api.map.baidu.com/api?v=2.0&ak=HrbZHNlFjqQGsi402y1MnRLLqT4SDMQ5"></script>

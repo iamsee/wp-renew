@@ -173,5 +173,6 @@ myChart.setOption({
 
 });
 
+
 var bmap = myChart.getModel().getComponent('bmap').getBMap();
 bmap.addControl(new BMap.MapTypeControl());
