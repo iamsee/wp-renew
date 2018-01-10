@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
     <div id="pre-view" class="content-view"></div>
-    <div id="index" class="content-view">
+    <div id="index" class="content-view gemsky-wrapper">
 
         <div class="ui two column stackable grid ">
 

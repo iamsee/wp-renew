@@ -224,6 +224,9 @@ input[type='submit']{
     left:0 !important;
 
 }
+#nav.fixed + div{
+    margin-top: 40px;
+}
 #nav.fixed *{
     color:black !important;
 }
@@ -256,9 +259,10 @@ input[type='submit']{
     background-color: silver;
 }
 
-#index,#category,#single,#page{
+#index,#category,#single,#page,.gemsky-wrapper{
     margin: 20px 10%;
-    min-height:1080px;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .content-view{
@@ -266,6 +270,7 @@ input[type='submit']{
 }
 #footer{
     clear:both;
+    top: 15px;
     position: relative;
     text-align: center;
     min-height: 180px;
@@ -611,6 +616,9 @@ input[type='submit']{
     /*position: relative;*/
     background-color: #ffffff;
     transition: all 0.5s linear;
+    min-height: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 /*页面切换laoding*/
 #loading{

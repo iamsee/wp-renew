@@ -15,7 +15,7 @@
 <!--            </div>-->
 <!--        </div>-->
 <!--    </div>-->
-    <div id="page">
+    <div id="page" class="gemsky-wrapper">
         <h4 class="ui horizontal divider header"><i class="tag icon"></i> 页面 </h4>
     </div>
 <?php get_footer(); ?>

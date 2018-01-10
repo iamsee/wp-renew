@@ -19,10 +19,15 @@ function gemsky_static()
 	wp_enqueue_script(
 		'jquery'
 	);
+
+
 	wp_enqueue_script('tweenjs', $_SERVER['proxy'] . '/static/tweenjs/Tween.js');
 	wp_enqueue_script('iamseeJSUtil',$_SERVER['proxy'] . '/static/common/js/iamseeJSUtil.js',array('jquery'));
 	wp_enqueue_script('semantic', $_SERVER['proxy'] . '/static/semantic-ui/semantic.min.js',array('jquery'));
-	wp_enqueue_script('functionjs', $_SERVER['proxy'] . '/function.js',array('jquery'),1.0,true);
+	wp_enqueue_script('initjs', $_SERVER['proxy'] . '/init.js',array('jquery'),1.0,false);
+	wp_enqueue_script('lodash', $_SERVER['proxy'] . '/static/lodash/lodash.min.js',array('jquery'),1.0,true);
+	wp_enqueue_script('functionjs', $_SERVER['proxy'] . '/function.js' ,array('jquery'),1.0,true);
+
 
 }
 add_action( 'wp_enqueue_scripts', 'gemsky_static' );

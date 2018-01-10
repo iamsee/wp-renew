@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-    <div id="single" class="content-view">
+    <div id="single" class="content-view gemsky-wrapper">
 
         <div class="ui two column stackable grid ">
 

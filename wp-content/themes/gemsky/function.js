@@ -26,7 +26,6 @@ function init() {
         setTopMenuBg()
 
 
-
         $('.gemsky-nav').visibility({
             type: 'fixed',
             offset : 0 // give some space from top of screen
@@ -125,12 +124,12 @@ function listen(mobileclick = true) {
     $('a').unbind('click').bind('click', function (event) {
         var url = $(this).attr('href')
         var myUrl = iamseeJSUtil.parseURL(url)
-        console.log(myUrl)
-        if(myUrl.file == '' && myUrl.path != "/wp-admin/"){
+
+        if(myUrl.file == '' &&  _.includes(['part-category','archives'],myUrl.segments[0])){
             event.preventDefault()
             start_loading()
             var do_scale = "scale(0.5,0.5)"
-            var do_scale_origin = "50% 20%"
+            var do_scale_origin = "50% 10%"
 
             var iframe = document.createElement('iframe')
             console.log('$("#gemsky-content")',$("#gemsky-content"))
@@ -167,7 +166,6 @@ function listen(mobileclick = true) {
                     history.pushState({}, '新页面', url)
                     end_loading()
                     // start()
-
                 },500)
 
 
