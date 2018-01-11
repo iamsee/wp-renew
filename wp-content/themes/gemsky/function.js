@@ -127,7 +127,7 @@ function listen(mobileclick = true) {
         var url = $(this).attr('href')
         var myUrl = iamseeJSUtil.parseURL(url)
 
-        if(myUrl.file == '' &&  _.includes(['part-category','archives'],myUrl.segments[0])){
+        if(myUrl.file == '' &&  _.includes(['part-category','archives','page'],myUrl.segments[0])){
             event.preventDefault()
             start_loading()
             var do_scale = "scale(0.5,0.5)"
