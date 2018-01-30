@@ -17,7 +17,15 @@
 
     <!--    <link rel="stylesheet" href="--><?php //bloginfo( 'stylesheet_url' ); ?><!--" type="text/css"/>-->
 
+    <style>
+        html{
+            cursor: url('<?php echo $_SERVER['proxy']; ?>/static/images/3.cur'), auto;
+
+        }
+
+    </style>
 	<?php wp_head(); ?>
+
 
 </head>
 

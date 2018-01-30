@@ -130,7 +130,7 @@ function listen(mobileclick = true) {
         if(myUrl.file == '' &&  _.includes(['part-category','archives','page'],myUrl.segments[0])){
             event.preventDefault()
             start_loading()
-            var do_scale = "scale(0.5,0.5)"
+            var do_scale = "scale(0.9,0.9)"
             var do_scale_origin = "50% 10%"
 
             var iframe = document.createElement('iframe')
@@ -217,7 +217,7 @@ window.start_loading = function(){
     document.getElementById('loading').style.zIndex = 1000
     var opacity_from = {x:0}
     var tween = new TWEEN.Tween( opacity_from )
-        .to( { x: 0.8 }, 300 )
+        .to( { x: 0.3 }, 300 )
         .easing( TWEEN.Easing.Linear.None )
         .onUpdate( function () {
 
@@ -227,7 +227,7 @@ window.start_loading = function(){
 }
 window.end_loading = function(){
 
-    var opacity_from = {x:0.8}
+    var opacity_from = {x:0.3}
     // var menubgleft = $('.topMenuBg').css('left')
     // console.log('menubgleft',menubgleft)
     // $('.topMenuBg').css('left',menubgleft-8+'px')
